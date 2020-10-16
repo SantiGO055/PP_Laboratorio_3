@@ -22,6 +22,7 @@ function ajax(metodo,ruta, callback,send = ""){
     }
     if(metodo == 'GET'){
         peticionHttp.send();
+        
     }
     if (peticionHttp.responseText == true) {
         

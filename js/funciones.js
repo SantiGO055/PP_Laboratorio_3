@@ -157,7 +157,7 @@ function validarBoton(){
 
 function leerPersonaGet(){
     
-    ajax("GET","http://localhost:3000/personas",respuestaGet);
+    ajax("GET","http://localhost:3000/materias",respuestaGet);
 }
 
 function respuestaGet(){
@@ -167,14 +167,14 @@ function respuestaGet(){
         
         var arrayJson = JSON.parse(peticionHttp.responseText);
         for (let i = 0; i < arrayJson.length; i++) {
-            agregarDatos(arrayJson[i].id,arrayJson[i].nombre,arrayJson[i].apellido,arrayJson[i].fecha,arrayJson[i].sexo);
+            agregarDatos(arrayJson[i].id,arrayJson[i].nombre,arrayJson[i].cuatrimestre,arrayJson[i].fechaFinal,arrayJson[i].turno);
         }
         return arrayJson;
     }
     
 }
 
-function agregarDatos(id,nombre,apellido,fecha,sexo){
+function agregarDatos(id,nombre,cuatrimestre,fechaFinal,turno){
 
     var row = document.createElement("tr");
 
@@ -188,26 +188,26 @@ function agregarDatos(id,nombre,apellido,fecha,sexo){
     // colNombre.setAttribute("id",id);
     row.appendChild(colNombre);
 
-    var colApellido = document.createElement("td");
-    var textApe = document.createTextNode(apellido);
+    var colCuatri = document.createElement("td");
+    var textCuatri = document.createTextNode(cuatrimestre);
     // colApellido.addEventListener("dblclick",modificarDatos);
-    colApellido.appendChild(textApe);
+    colCuatri.appendChild(textCuatri);
     // colApellido.setAttribute("id",id);
-    row.appendChild(colApellido);
+    row.appendChild(colCuatri);
 
     var colFecha = document.createElement("td");
-    var textFecha = document.createTextNode(fecha);
+    var textFecha = document.createTextNode(fechaFinal);
     // colFecha.addEventListener("dblclick",modificarDatos);
     colFecha.appendChild(textFecha);
     // colFecha.setAttribute("id",id);
     row.appendChild(colFecha);
 
-    var colSexo = document.createElement("td");
-    var textSexo = document.createTextNode(sexo);
+    var colTurno = document.createElement("td");
+    var textTurno = document.createTextNode(turno);
     // colSexo.addEventListener("dblclick",modificarDatos);
-    colSexo.appendChild(textSexo);
+    colTurno.appendChild(textTurno);
     // colSexo.setAttribute("id",id);
-    row.appendChild(colSexo);
+    row.appendChild(colTurno);
     
     
     //#region columnas de accion
